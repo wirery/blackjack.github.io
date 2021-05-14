@@ -1,12 +1,14 @@
 body {
     background-image: url(https://wallpapercave.com/wp/wp2180183.jpg);
-}
+text-align: center;}
 
 .playingCard {
     display: inline-block;
     border-radius: 5px;
-    height: 400px;
-    width: 200px;
+    height: 175px;
+    width: 150px;
     border: 1px solid black;
     margin: 10px;
+    background-color: white;
+    padding-top: 12%;
 }

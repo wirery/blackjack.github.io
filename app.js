@@ -76,7 +76,7 @@ function dealHand() {
 }
 dealHand()
 document.getElementById('start').addEventListener('click', dealHand)
-console.log(dealerHand)
+// console.log(dealerHand)
 console.log(playerHand)
 
 //create a function to hit
@@ -88,36 +88,62 @@ function dealHit() {
 }
 document.getElementById('hitMe').addEventListener('click', dealHit)
 
-//create a function to check win
-
-function checkWin() {
-    let playerHandValue = 0;
-    let dealerHandValue = 0
-
-    //Create a loop over the player's hand
-    for (let i = 0; i < playerHand.length; i++) {
-        //set playerHandValue to the sum of the numbers in the player's array
-        playerHandValue += playerHand[i].value
-        // console.log(playerHandValue)
+function displayCardValue (card, location) {
+    
         //create a div element.  Insert a class name of card.  
         let playerCards = document.createElement('div')
         let element = document.querySelector ('body')
-        element.appendChild(playerCards)
+        // element.appendChild(playerCards)
         playerCards.id = 'cardValueSuit'
         playerCards.innerHTML = playerHandValue
 
         //using the card div element. give it an id that combos the rank and suit.
         //insert TEXT into the card div including 
         //append that div to the child of the player deck
-    } for (let i = 0; i < dealerHand.length; i++) {
-        //set playerHandValue to the sum of the numbers in the player's array
-        dealerHandValue += dealerHand[i].value
 
         let dealerCards = document.createElement('div')
         let element2 = document.querySelector ('body')
         element2.appendChild(dealerCards)
         dealerCards.id = 'dealerValueSuit'
         dealerCards.innerHTML = dealerHandValue
+        // console.log(dealerHandValue)
+
+}
+
+
+
+
+function displayHandTotal (sum, location) {
+
+}
+//create a function to check win
+
+function checkWin() {
+    let playerHandValue = 0;
+    let dealerHandValue = 0
+    //Create a loop over the player's hand
+    for (let i = 0; i < playerHand.length; i++) {
+        //set playerHandValue to the sum of the numbers in the player's array
+        playerHandValue += playerHand[i].value
+        console.log (playerHand[i])
+        console.log(playerHandValue)
+        displayCardValue(playerHand[i])
+
+        //using the card div element. give it an id that combos the rank and suit.
+        //insert TEXT into the card div including 
+        //append that div to the child of the player deck
+    } 
+    
+    
+    for (let i = 0; i < dealerHand.length; i++) {
+        //set playerHandValue to the sum of the numbers in the player's array
+        dealerHandValue += dealerHand[i].value
+
+        // let dealerCards = document.createElement('div')
+        // let element2 = document.querySelector ('body')
+        // element2.appendChild(dealerCards)
+        // dealerCards.id = 'dealerValueSuit'
+        // dealerCards.innerHTML = dealerHandValue
         // console.log(dealerHandValue)
         //create a div element.  Insert a class name of card.  
 

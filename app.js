@@ -31,7 +31,6 @@ for (let i = 0; i < SUITS.length; i++) {
         DECK.push(new Card(SUITS[i], RANK[j], parseInt(RANK[j])))
     }
 }
-console.log(DECK)
 
 
 //Create a function to shuffle the cards (Reference: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array)
@@ -56,6 +55,10 @@ function shuffle(array) {
 shuffle(DECK)
 console.log(DECK)
 
+function simDeck() {
+    document.getElementById('cardsRemaining').innerHTML = ''
+}
+
 //create a function to deal cards console.log(deck.pop), append it to a div
 function dealHand() {
     if (playerHand.length == 0 && dealerHand.length == 0) {
@@ -72,10 +75,9 @@ function dealHand() {
     }
 }
 dealHand()
-
+document.getElementById('start').addEventListener('click', dealHand)
 console.log(dealerHand)
 console.log(playerHand)
-//create a function to connect cards to a div element
 
 //create a function to hit
 function dealHit() {
@@ -97,10 +99,22 @@ function checkWin() {
         //set playerHandValue to the sum of the numbers in the player's array
         playerHandValue += playerHand[i].value
         console.log(playerHandValue)
+        //create a div element.  Insert a class name of card.  
+        let playerCards = document.createElement('div')
+        let element = document.querySelector ('body')
+        element.appendChild(playerCards)
+        playerCards.id = 'cardValueSuit'
+        playerCards.innerHTML = playerHandValue
+
+        //using the card div element. give it an id that combos the rank and suit.
+        //insert TEXT into the card div including 
+        //append that div to the child of the player deck
     } for (let i = 0; i < dealerHand.length; i++) {
         //set playerHandValue to the sum of the numbers in the player's array
         dealerHandValue += dealerHand[i].value
         console.log(dealerHandValue)
+        //create a div element.  Insert a class name of card.  
+
     }
 
     // //Statement of if playerHandValue is > 21, then player loses
@@ -128,17 +142,7 @@ function checkWin() {
 
 checkWin()
 
-// function end()
-// {
-//     var winner = -1;
-//     var score = 0;
-//     for(var i = 0; i < playerHand.length; i++)
-//     {
-//         if (playerHand[i].Points > score && players[i].Points < 22)
-//         {
-//             winner = i;
-//         }
-//         score = players[i].Points;
-//     }
-//     document.getElementById('status').innerHTML = 'Winner: Player ' + players[winner].ID;
-// 
+//append value to the page
+// document.getElementById('playerHand').innerText = playerHandValue
+//create a stylized div
+//week 2 day 5 DOM

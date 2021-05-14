@@ -91,22 +91,14 @@ document.getElementById('hitMe').addEventListener('click', dealHit)
 function displayCardValue (card, location) {
     
         //create a div element.  Insert a class name of card.  
-        let playerCards = document.createElement('div')
-        let element = document.querySelector ('body')
-        // element.appendChild(playerCards)
-        playerCards.id = 'cardValueSuit'
-        playerCards.innerHTML = playerHandValue
-
+        let playerCard = document.createElement('div')
+        playerCard.id = `playerCard${card.suit}${card.rank}`
+        playerCard.innerText = `${card.suit} ${card.rank}`
+        playerCard.classList.add("playingCard")
         //using the card div element. give it an id that combos the rank and suit.
         //insert TEXT into the card div including 
         //append that div to the child of the player deck
-
-        let dealerCards = document.createElement('div')
-        let element2 = document.querySelector ('body')
-        element2.appendChild(dealerCards)
-        dealerCards.id = 'dealerValueSuit'
-        dealerCards.innerHTML = dealerHandValue
-        // console.log(dealerHandValue)
+        document.getElementById(location).appendChild(playerCard)
 
 }
 
@@ -127,7 +119,7 @@ function checkWin() {
         playerHandValue += playerHand[i].value
         console.log (playerHand[i])
         console.log(playerHandValue)
-        displayCardValue(playerHand[i])
+        displayCardValue(playerHand[i], "playerHand")
 
         //using the card div element. give it an id that combos the rank and suit.
         //insert TEXT into the card div including 

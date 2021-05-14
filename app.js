@@ -98,7 +98,7 @@ function checkWin() {
     for (let i = 0; i < playerHand.length; i++) {
         //set playerHandValue to the sum of the numbers in the player's array
         playerHandValue += playerHand[i].value
-        console.log(playerHandValue)
+        // console.log(playerHandValue)
         //create a div element.  Insert a class name of card.  
         let playerCards = document.createElement('div')
         let element = document.querySelector ('body')
@@ -112,12 +112,18 @@ function checkWin() {
     } for (let i = 0; i < dealerHand.length; i++) {
         //set playerHandValue to the sum of the numbers in the player's array
         dealerHandValue += dealerHand[i].value
-        console.log(dealerHandValue)
+
+        let dealerCards = document.createElement('div')
+        let element2 = document.querySelector ('body')
+        element2.appendChild(dealerCards)
+        dealerCards.id = 'dealerValueSuit'
+        dealerCards.innerHTML = dealerHandValue
+        // console.log(dealerHandValue)
         //create a div element.  Insert a class name of card.  
 
     }
 
-    // //Statement of if playerHandValue is > 21, then player loses
+    // //Statement of if playerHandValue is > 21, then playe r loses
     if (playerHandValue > 21 || (playerHandValue < dealerHandValue && dealerHandValue <= 21)) {
         console.log("The player loses")
     }

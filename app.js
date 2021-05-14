@@ -1,3 +1,4 @@
+//Arrays created to hold values, ranks, decks and hands
 const SUITS = ['S', 'H', 'D', 'C']
 const RANK = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', "Q", "K"]
 const DECK = []
@@ -22,12 +23,12 @@ for (let i = 0; i < SUITS.length; i++) {
             DECK.push(new Card(SUITS[i], RANK[j], 10))
             continue;
         }
-
+//This loop creates sets the value of the ace and pushes into the deck
         if (RANK[j] === 'A') {
             DECK.push(new Card(SUITS[i], RANK[j], 1, 11))
             continue;
         }
-
+//create the value of jacks and pushes into deck array
         DECK.push(new Card(SUITS[i], RANK[j], parseInt(RANK[j])))
     }
 }
@@ -37,7 +38,7 @@ for (let i = 0; i < SUITS.length; i++) {
 
 
 function shuffle(array) {
-
+//I found a shuffle function that was able to create a randomized deck.  It iterates over the index and rearranges them in a different order. 
     let currentIndex = array.length, temporaryValue, randomIndex;
 
     while (0 !== currentIndex) {
@@ -53,11 +54,7 @@ function shuffle(array) {
 
 };
 shuffle(DECK)
-console.log(DECK)
 
-function simDeck() {
-    document.getElementById('cardsRemaining').innerHTML = ''
-}
 
 //create a function to deal cards console.log(deck.pop), append it to a div
 function dealHand() {
@@ -72,59 +69,65 @@ function dealHand() {
             dealerHand.push(cardToDeal)
 
         }
-    } 
-    checkWin()
+    } checkWin()
 }
-// dealHand()
-document.getElementById('start').addEventListener('click', dealHand)
-// console.log(dealerHand)
-console.log(playerHand)
 
-//create a function to hit
+
+//create an event listener to deal cards and check status of player total vs dealer total
+document.getElementById('start').addEventListener('click', dealHand)
+
+
+
+//create a function to deal a new card to the player
 function dealHit() {
     let cardToDeal = DECK.pop()
     console.log(cardToDeal)
     playerHand.push(cardToDeal)
     checkWin()
 }
+
+//create an event listener to deal a new card to the player and check status of player total vs dealer total
 document.getElementById('hitMe').addEventListener('click', dealHit)
 
+
+//This function allows me to display the value of my cards on the playing cards.
 function displayCardValue(card, location) {
 
-    //create a div element.  Insert a class name of card.  
+    //create a div element to hold the player's card
     let playerCard = document.createElement('div')
+    //places the card rank and suit label onto the player card
     playerCard.id = `playerCard${card.suit}${card.rank}`
     playerCard.innerText = `${card.suit} ${card.rank}`
     playerCard.classList.add("playingCard")
-    //using the card div element. give it an id that combos the rank and suit.
-    //insert TEXT into the card div including 
-    //append that div to the child of the player deck
     document.getElementById(location).appendChild(playerCard)
 
 }
 
 
 
+//function to create a player hand total
 
 function displayHandTotal(sum, location) {
     document.getElementById(location).innerText = sum
 }
 
-//create a function to check win
+//create a function to check win and display hand values
 
 function checkWin() {
+
     let playerHandValue = 0;
     let dealerHandValue = 0
+    //accesses the element to push into
     document.getElementById('playerHand').innerHTML = '';
     //Create a loop over the player's hand
     for (let i = 0; i < playerHand.length; i++) {
         //set playerHandValue to the sum of the numbers in the player's array
         playerHandValue += playerHand[i].value
-
+//calls the card value function and checks the player hand array.
         displayCardValue(playerHand[i], "playerHand")
 
     }
-
+//calls the display hand total function, assigning the player's hand value to it.
     displayHandTotal(playerHandValue, "playerTotal")
 
 
@@ -139,35 +142,28 @@ function checkWin() {
 
     }
 
+//calls the display hand total function, assigning the dealer's hand value to it.
 
     displayHandTotal(dealerHandValue, 'dealerTotal')
 
-    // //Statement of if playerHandValue is > 21, then playe r loses
+    // //Statement of player loses condition
     if (playerHandValue > 21 || (playerHandValue < dealerHandValue && dealerHandValue <= 21)) {
-        console.log("The player loses")
+        alert("The player loses")
     }
-
-    // // } // statement of if the playerHandValue is < dealerHandValue && dealerHandValue is <= 21 
-    // else if () {
-    //     console.log("The player loses")
-
-    // } //If the dealerHandValue is > 21, && playerHandValue <= 21
+//statement of player wins condition
     else if ((dealerHandValue > 21 || playerHandValue > dealerHandValue) && (dealerHandValue <= 21)) {
-        console.log("The player wins")
+        alert("The player wins")
     }
-
-    // // }//If the dealerHandValue is < 21 && playerHandValue is > dealerHandValue && playerHandValue is <=21, player wins
-    // else if () {
-    //             console.log("the player wins")
-    // } //if the dealerHandValue === playerHandValue, tie/push
+//statement of tie/push condition
     else if (dealerHandValue == playerHandValue) {
-        console.log("push/tie")
+        alert("push/tie")
     }
 }
 
 checkWin()
 
-//append value to the page
-// document.getElementById('playerHand').innerText = playerHandValue
-//create a stylized div
-//week 2 day 5 DOM
+//ends the game once the player stays
+function endGame () {
+    alert("game over!")
+}
+document.getElementById('stay').addEventListener('click', endGame)

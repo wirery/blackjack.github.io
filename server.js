@@ -1,11 +1,14 @@
 const express = require('express')
 const mongoose = require('mongoose')
-
+const methodOverride = require('method-override')
 
 const app = express()
 const PORT = 3000
 
 app.use(express.urlencoded({ extended: true }))
+
+
+app.use(methodOverride('_method'))
 
 
 mongoose.connect('mongodb://localhost:27017/basiccrud', { useNewUrlParser: true })
@@ -43,7 +46,7 @@ app.post('/coins', (req, res) => {
     Coin.create(req.body, (error, createdCoin) => {
         // res.redirect(createdCoin)
     })
-    // res.send('received')
+    // res.se nd('received')
     res.redirect('/coins')
 })
 
@@ -59,6 +62,12 @@ app.get('/coins/:id', (req, res) => {
     })
 })
 
+
+
+app.delete('/coins/:id', (req,res) => {
+    console.log(req.params.id)
+    res.send('/coins')
+})
 
 app.listen(PORT, () => {
     console.log("Server is running on port " + PORT)

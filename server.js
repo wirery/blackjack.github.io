@@ -8,7 +8,7 @@ const PORT = 3000
 app.use(express.urlencoded({extended: true})) 
 
 
-mongoose.connect('mongodb://localhost:27017/coincrud', {useNewUrlParser: true})
+mongoose.connect('mongodb://localhost:27017/basiccrud', { useNewUrlParser: true})
 mongoose.connection.once('open', () => {
     console.log('connected to mongo')
 })
@@ -16,7 +16,7 @@ mongoose.connection.once('open', () => {
 
 
 
-const COINS = require('./models/coins.js')
+const Coins = require('./models/coins.js')
 
 
 app.get('/coins/new', (req, res) => {
@@ -31,10 +31,10 @@ app.get('/coins/new', (req, res) => {
 app.post('/coins', (req, res) => {
     console.log(req.body)
     // coins.push(req.body)
-    COINS.create(req.body, (error, createdCoins) => {
+    Coins.create(req.body, (error, createdCoins) => {
         res.send(createdCoins)
     })
-    res.send('received')
+    // res.send('received')
     // res.redirect('/coins')
   })
 

@@ -1,9 +1,17 @@
 const express = require('express')
+const mongoose = require('mongoose')
+
 
 const app = express()
 const PORT = 3000
 
 app.use(express.urlencoded({extended: true})) 
+
+
+mongoose.connect('mongodb://localhost:27017/coincrud', {useNewUrlParser: true})
+mongoose.connection.once('open', () => {
+    console.log('connected to mongo')
+})
 
 app.get('/coins/new', (req, res) => {
     res.render('new.ejs');

@@ -13,6 +13,12 @@ mongoose.connection.once('open', () => {
     console.log('connected to mongo')
 })
 
+
+
+
+const COINS = require('./models/coins.js')
+
+
 app.get('/coins/new', (req, res) => {
     res.render('new.ejs');
   })
@@ -25,6 +31,9 @@ app.get('/coins/new', (req, res) => {
 app.post('/coins', (req, res) => {
     console.log(req.body)
     // coins.push(req.body)
+    COINS.create(req.body, (error, createdCoins) => {
+        res.send(createdCoins)
+    })
     res.send('received')
     // res.redirect('/coins')
   })

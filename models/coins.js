@@ -11,3 +11,7 @@ const coinsSchema = new mongoose.Schema({
     salePrice:  { type: String, required: true}
     
 })
+
+const COINS = mongoose.model('Coins', coinsSchema)
+
+module.exports = COINS

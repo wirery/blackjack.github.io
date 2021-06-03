@@ -66,6 +66,9 @@ app.get('/coins/:id', (req, res) => {
 
 app.delete('/coins/:id', (req,res) => {
     console.log(req.params.id)
+    Coin.findByIdAndRemove(req.params.id , (error, deleteCoin) => {
+        console.log(deleteCoin)
+    })
     res.send('/coins')
 })
 

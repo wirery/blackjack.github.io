@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const coinsSchema = new mongoose.Schema({
+const coinSchema = new mongoose.Schema({
     country: { type: String, required: true},
     // img:  { type: String, required: true},
     // denomination:  { type: String, required: true},
@@ -12,6 +12,6 @@ const coinsSchema = new mongoose.Schema({
     
 })
 
-const Coins = mongoose.model('Coins', coinsSchema)
+const Coin = mongoose.model('Coins', coinSchema)
 
-module.exports = Coins
+module.exports = Coin

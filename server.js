@@ -16,23 +16,36 @@ mongoose.connection.once('open', () => {
 
 
 
-const Coins = require('./models/coins.js')
+const Coin = require('./models/coins.js')
 
+
+app.get('/coins', (req, res) => {
+    Coin.find({},(error, allCoins)=> {
+        if (error) {
+            res.send(error)
+        } else {
+            res.render('index.ejs', {
+               coins: allCoins 
+            })
+        }
+        res.send(allCoins)
+    })
+    // res.render('index.ejs'
+    //, {
+    // //   Coin: Coin
+    // })
+  })
 
 app.get('/coins/new', (req, res) => {
     res.render('new.ejs');
   })
-  app.get('/coins', (req, res) => {
-    res.render('index.ejs', {
-    //   coins: coins
-    })
-  })
+  
 
 app.post('/coins', (req, res) => {
     console.log(req.body)
-    // coins.push(req.body)
-    Coins.create(req.body, (error, createdCoins) => {
-        res.send(createdCoins)
+    // Coin.push(req.body)
+    Coin.create(req.body, (error, createdCoin) => {
+        res.send(createdCoin)
     })
     // res.send('received')
     // res.redirect('/coins')

@@ -12,12 +12,15 @@
     <% for (let i = 0; i < Coin.length; i++) { %>
 
     <li>
-        <a href="/coins/<%= i %>">
+        <a href="/coins/<%= Coin[i]._id%>">
             <img src="<%=Coin[i].img %>" width= 75px>
           </a>
             
 
     </li>
+    <form action="/coins/<%= coins[i]._id %>?_method=DELETE" method="POST">
+    <input type='submit' value="destroy"/>
+    </form>
     <% } %>
     <nav>
         <a href="/coins/new">Add a New Item</a>

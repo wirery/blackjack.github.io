@@ -36,15 +36,6 @@ app.get('/coins/new', (req, res) => {
     res.render('new.ejs');
 })
 
-app.get('/coins/:id', (req, res) => {
-    console.log(req.params.id)
-    Coin.findById(req.params.id, (error, foundCoin)=> {
-        // res.send(foundCoin)
-        res.render('show.ejs', {
-            Coin: foundCoin
-        })
-    })
-})
 
 app.post('/coins', (req, res) => {
     console.log(req.body)
@@ -55,6 +46,19 @@ app.post('/coins', (req, res) => {
     // res.send('received')
     res.redirect('/coins')
 })
+
+
+app.get('/coins/:id', (req, res) => {
+    console.log(req.params.id)
+    Coin.findById(req.params.id, (error, foundCoin)=> {
+        // res.send(foundCoin)
+        console.log(foundCoin)
+        res.render('show.ejs', {
+            Coin: foundCoin
+        })
+    })
+})
+
 
 app.listen(PORT, () => {
     console.log("Server is running on port " + PORT)

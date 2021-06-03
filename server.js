@@ -68,8 +68,8 @@ app.delete('/coins/:id', (req,res) => {
     console.log(req.params.id)
     Coin.findByIdAndRemove(req.params.id , (error, deleteCoin) => {
         console.log(deleteCoin)
+        res.redirect('/coins')
     })
-    res.send('/coins')
 })
 
 app.listen(PORT, () => {

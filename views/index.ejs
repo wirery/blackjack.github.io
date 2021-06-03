@@ -12,10 +12,16 @@
     <% for (let i = 0; i < Coin.length; i++) { %>
 
     <li>
-         <%= Coin[i].img%> 
-        
+        <a href="/coins/<%= i %>">
+            <img src="<%=Coin[i].img %>" width= 75px>
+          </a>
+            
 
     </li>
     <% } %>
+    <nav>
+        <a href="/coins/new">Add a New Item</a>
+
+    </nav>
 </body>
 </html> 

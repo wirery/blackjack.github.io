@@ -36,6 +36,15 @@ app.get('/coins/new', (req, res) => {
     res.render('new.ejs');
 })
 
+app.get('/coins/:id', (req, res) => {
+    console.log(req.params.id)
+    Coin.findById(req.params.id, (error, foundCoin)=> {
+        // res.send(foundCoin)
+        res.render('show.ejs', {
+            Coin: foundCoin
+        })
+    })
+})
 
 app.post('/coins', (req, res) => {
     console.log(req.body)

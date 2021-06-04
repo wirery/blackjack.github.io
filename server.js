@@ -61,7 +61,7 @@ app.post('/coins', (req, res) => {
         // res.redirect(createdCoin)
     })
     // res.se nd('received')
-    res.redirect('/coins')
+    res.redirect('/')
 })
 
 

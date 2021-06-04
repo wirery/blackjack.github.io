@@ -10,7 +10,7 @@
 <!-- In this page, I created a form to allow updates to my coin show pages -->
 <body>
     <h1>Edit Coins</h1>
-    <form action="/coins/<%=Coin.id %>?_method=PUT" method="POST">
+    <h3><form action="/coins/<%=Coin.id %>?_method=PUT" method="POST">
         <label for="name">Country</label>
         <input type="text" name="country" id="country" />
 
@@ -34,6 +34,13 @@
 
         <input type="submit" value="Edit Item">
     </form>
+</h3>
+<style>
+    body{
+        background-image: url(https://coins.thefuntimesguide.com/files/old-coin-press.jpg);
+        color: firebrick;
+    }
+</style>
 </body>
 
 </html>

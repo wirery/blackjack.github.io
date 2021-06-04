@@ -21,6 +21,7 @@ mongoose.connection.once('open', () => {
 
 const Coin = require('./models/coins.js')
 
+//Index GET
 
 app.get('/coins', (req, res) => {
     // console.log(res.data)
@@ -35,10 +36,12 @@ app.get('/coins', (req, res) => {
     })
 })
 
+//New GET
 app.get('/coins/new', (req, res) => {
     res.render('new.ejs');
 })
 
+//Create POST
 
 app.post('/coins', (req, res) => {
     console.log(req.body)
@@ -51,7 +54,7 @@ app.post('/coins', (req, res) => {
 })
 
 
-//
+//Show GET 
 app.get('/coins/:id', (req, res) => {
     console.log(req.params.id)
     Coin.findById(req.params.id, (error, foundCoin) => {
@@ -74,7 +77,7 @@ app.delete('/coins/:id', (req, res) => {
 })
 
 
-//Edit Get
+//Edit GET
 
 app.get('/coins/:id/edit', (req, res) => {
     Coin.findById(req.params.id, (error, editCoin) => {

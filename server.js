@@ -6,7 +6,7 @@ const db = mongoose.connection;
 const app = express()
 const PORT = process.env.PORT || 3000
 
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
 app.use(methodOverride('_method'))
@@ -103,6 +103,14 @@ app.put('/coins/:id/', (req, res) => {
         res.redirect('/coins')
     })
 })
+
+
+app.get('/' , (req, res) => {
+    res.send('Hello World!');
+  });
+  
+  
+
 
 app.listen(PORT, () => {
     console.log("Server is running on port " + PORT)

@@ -25,6 +25,11 @@ db.on('open' , ()=>{});
 
 
 
+app.use(express.static('public'));
+
+
+
+
 const Coin = require('./models/coins.js')
 
 //Index GET
@@ -105,7 +110,7 @@ app.put('/coins/:id/', (req, res) => {
 
 
 app.get('/' , (req, res) => {
-    res.redirect('index.ejs');
+    res.send('hello world');
   });
   
   

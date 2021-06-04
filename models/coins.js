@@ -5,7 +5,7 @@ const coinSchema = new mongoose.Schema({
     img:  { type: String, required: true},
     year:  { type: Number, required: true},
     quantity:  { type: Number, required: true},
-    grade:  { type: String, required: true},
+    grade:  { type: Number, required: true},
     value:  { type: Number, required: true}
     
 })

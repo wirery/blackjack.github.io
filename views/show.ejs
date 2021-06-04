@@ -7,15 +7,40 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hello</h1>
-    <h1><%=Coin.country %></h1>
-    <h1><%=Coin.img%></h1>
-    <%=Coin.year%>
-    <%=Coin.quantity%>
-    <%=Coin.grade%>
-    <%=Coin.value%>
+    <h1>Coin</h1>
+    <img src="<%=Coin.img%>" width= 500px>
+
+    <ul>
+        <li>
+            <h2>Country</h2>
+            <h3><%=Coin.country %></h3>
+
+        </li>
+        <li>
+            <h2>Quantity</h2>
+            <h3><%=Coin.quantity%>
+            </h3>
+        </li>
+
+        <li>
+            <h2>Grade (Mint State)</h2>
+            <h3>    <%=Coin.grade%>
+            </h3>
+
+        </li>
+        <li>
+            <h2>Value</h2>
+            <h3>    <%=Coin.value%>
+            </h3>
+        </li>
 
 
+
+    </ul>
+    
+
+
+    <button><a href="/coins">Back</a></button>
 
 </body>
 </html>

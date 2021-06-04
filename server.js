@@ -54,7 +54,7 @@ app.get('/coins', (req, res) => {
 
 //Create POST
 
-app.post('/coins', (req, res) => {
+app.post('/', (req, res) => {
     console.log(req.body)
     // Coin.push(req.body)
     Coin.create(req.body, (error, createdCoin) => {

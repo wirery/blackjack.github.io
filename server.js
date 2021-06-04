@@ -34,7 +34,7 @@ const Coin = require('./models/coins.js')
 
 //Index GET
 
-app.get('/coins', (req, res) => {
+app.get('/', (req, res) => {
     // console.log(res.data)
     Coin.find({}, (error, allCoins) => {
         if (error) {

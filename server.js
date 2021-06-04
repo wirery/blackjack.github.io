@@ -109,9 +109,9 @@ app.put('/coins/:id/', (req, res) => {
 })
 
 
-app.get('/' , (req, res) => {
-    res.send('hello world');
-  });
+// app.get('/' , (req, res) => {
+//     res.send('hello world');
+//   });
   
   
 

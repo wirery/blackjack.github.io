@@ -51,6 +51,7 @@ app.post('/coins', (req, res) => {
 })
 
 
+//
 app.get('/coins/:id', (req, res) => {
     console.log(req.params.id)
     Coin.findById(req.params.id, (error, foundCoin) => {
@@ -62,7 +63,7 @@ app.get('/coins/:id', (req, res) => {
     })
 })
 
-
+//Destroy
 
 app.delete('/coins/:id', (req, res) => {
     console.log(req.params.id)
@@ -73,7 +74,7 @@ app.delete('/coins/:id', (req, res) => {
 })
 
 
-//Edit Show
+//Edit Get
 
 app.get('/coins/:id/edit', (req, res) => {
     Coin.findById(req.params.id, (error, editCoin) => {
@@ -83,11 +84,11 @@ app.get('/coins/:id/edit', (req, res) => {
     })
 })
 
-//Edit
+//Edit Update
 
 app.put('/coins/:id/', (req, res) => {
     console.log(req.body)
-    Coin.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedCoin) => {
+    Coin.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedCoin) => {
         console.log(updatedCoin)
         res.redirect('/coins')
     })

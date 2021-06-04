@@ -1,33 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-    <h1>Welcome to My Coin Collection!</h1>
+<h1>Welcome to My Coin Collection!</h1>
+
 <body>
     <h2>All of the Coins</h2>
-    <% for (let i = 0; i < Coin.length; i++) { %>
+    <% for (let i=0; i < Coin.length; i++) { %>
 
-    <li>
-        <a href="/coins/<%= Coin[i].id%>">
-            <img src="<%=Coin[i].img %>" width= 75px>
-          </a>
-            
+        <li>
+            <a href="/coins/<%= Coin[i].id%>">
+                <img src="<%=Coin[i].img %>" width=75px>
+            </a>
 
-    </li>
-    <a href="/coins/<%= Coin[i].id %>/edit">Edit</a>
+
+        </li>
+        <a href="/coins/<%= Coin[i].id %>/edit">Edit</a>
 
         <form action="/coins/<%= Coin[i].id %>?_method=DELETE" method="POST">
-    <input type='submit' value="destroy"/>
-    </form>
+            <input type='submit' value="destroy" />
+        </form>
 
-    <% } %>
-    <nav>
-        <a href="/coins/new">Add a New Item</a>
+        <% } %>
+            <nav>
+                <a href="/coins/new">Add a New Item</a>
 
-    </nav>
+            </nav>
+            <style>
+                body {
+                    background-color: rgb(29, 37, 37);
+                    color: whitesmoke;
+                    width: max-content;
+                    margin: auto;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+
+                li {
+                    flex-direction: row;
+                }
+            </style>
 </body>
-</html> 
+
+
+</html>

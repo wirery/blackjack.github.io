@@ -1,36 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coins</title>
 </head>
+
 <body>
     <h1>Edit Coins</h1>
     <form action="/coins/<%=Coin.id %>?_method=PUT" method="POST">
-            <label for="name">Country</label>
-            <input type="text" name="country" id="country" />
-    
-            <label for="img">Img</label>
-            <input type="text" name="img" id="img" />
-    
-            <label for="type">Year</label>
-            <input type="text" name="year" id="year" />
-    
-            <label for="hp">Quantity</label>
-            <input type="text" name="quantity" id="quantity" />
-    
-            <label for="speed">Grade</label>
-            <input type="text" name="grade" id="grade" />
-    
-            <label for="attack">Value</label>
-            <input type="text" name="value" id="value" />
-    
-    
+        <label for="name">Country</label>
+        <input type="text" name="country" id="country" />
+
+        <label for="img">Img</label>
+        <input type="text" name="img" id="img" />
+
+        <label for="type">Year</label>
+        <input type="text" name="year" id="year" />
+
+        <label for="hp">Quantity</label>
+        <input type="text" name="quantity" id="quantity" />
+
+        <label for="speed">Grade</label>
+        <input type="text" name="grade" id="grade" />
+
+        <label for="attack">Value</label>
+        <input type="text" name="value" id="value" />
+
+
 
 
         <input type="submit" value="Edit Item">
     </form>
 </body>
+
 </html>

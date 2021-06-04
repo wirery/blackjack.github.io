@@ -23,7 +23,6 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 // open the connection to mongo
 db.on('open' , ()=>{});
 
-// PORT = process.env.PORT || 3000
 
 
 const Coin = require('./models/coins.js')

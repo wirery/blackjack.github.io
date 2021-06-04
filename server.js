@@ -48,7 +48,7 @@ app.get('/', (req, res) => {
 })
 
 //New GET
-app.get('/coins/new', (req, res) => {
+app.get('/coins', (req, res) => {
     res.render('new.ejs');
 })
 

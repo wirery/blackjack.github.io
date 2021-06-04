@@ -12,7 +12,7 @@
     <h1>Edit Coins</h1>
     <h3><form action="/coins/<%=Coin.id %>?_method=PUT" method="POST">
         <label for="name">Country</label>
-        <input type="text" name="country" id="country" />
+        <input type="text" name="country" id="country" value="<%= Coin.country%>"/>
 
         <label for="img">Img</label>
         <input type="text" name="img" id="img" />

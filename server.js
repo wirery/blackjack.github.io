@@ -104,7 +104,7 @@ app.put('/coins/:id/', (req, res) => {
     console.log(req.body)
     Coin.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedCoin) => {
         console.log(updatedCoin)
-        res.redirect('/coins')
+        res.redirect('/')
     })
 })
 

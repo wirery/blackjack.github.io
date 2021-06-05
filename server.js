@@ -1,18 +1,21 @@
+//Dependencies
+
+const Coin = require('./models/coins.js')
 const express = require('express')
 const mongoose = require('mongoose')
 const methodOverride = require('method-override')
 const db = mongoose.connection;
-
 const app = express()
+
+//Port
 const PORT = process.env.PORT || 3000
 
-app.use(express.urlencoded({ extended: false }))
-app.use(express.json())
 
-app.use(methodOverride('_method'))
 
+//Database
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost: 27017'+ 'basiccrud'
 
+//Connection to Mongoose
 mongoose.connect(MONGODB_URI ,  { useNewUrlParser: true});
 
 // Error / success
@@ -23,14 +26,18 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 // open the connection to mongo
 db.on('open' , ()=>{});
 
+//Middleware
+app.use(express.urlencoded({ extended: false }))
+app.use(express.json())
 
-
+app.use(methodOverride('_method'))
 app.use(express.static('public'));
 
 
 
 
-const Coin = require('./models/coins.js')
+
+//Routes
 
 //Index GET
 
